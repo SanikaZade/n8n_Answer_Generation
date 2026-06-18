@@ -69,10 +69,10 @@ cbse-physics-answer-pdf-generator/
 │   └── workflow.png
 │
 ├── sample-files/
-│   └── chapter8.pdf
+│   └── Input_file.pdf
 │
 ├── sample-output/
-│   └── answer_sheet.pdf
+│   └── output_file.txt
 │
 └── README.md
 
