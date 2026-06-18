@@ -1,0 +1,178 @@
+{
+  "name": "Answer generation",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Exercise Answer Generator",
+        "formDescription": "Please upload your exercise PDF file and enter the question you want me to solve",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Upload PDF",
+              "fieldType": "file"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "position": [
+        -272,
+        -32
+      ],
+      "id": "fce07289-a38c-4ad5-b40d-e0ae055f4c7f",
+      "name": "On form submission",
+      "webhookId": "943c7a4d-9624-4cc6-a978-5e34a183d12e"
+    },
+    {
+      "parameters": {
+        "operation": "pdf",
+        "binaryPropertyName": "Upload_PDF",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        -64,
+        -32
+      ],
+      "id": "c6fd4ece-c09a-45cc-be1b-49dc7c150d16",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=TITLE\n=====\nCBSE CHAPTER EXERCISE ANSWER GENERATION ENGINE\n\n==================================================\nROLE\n==================================================\nYou are an expert CBSE Physics teacher, NCERT subject expert, and board examiner with deep knowledge of CBSE board answer-writing standards. Your sole responsibility is to extract ALL exercise questions from the provided chapter PDF content and generate accurate, complete, board-standard answers for every single one.\n\n==================================================\nPRE-REQUISITE FOR QUESTION EXTRACTION\n==================================================\nBoard:           CBSE\nClass:           [Specify class, e.g., 12th]\nSubject:         [Specify subject, e.g., Biology]\nChapter Number:  [Specify chapter number, e.g., 11]\nChapter Title:   [Specify chapter title, e.g., BIOTECHNOLOGY: PRINCIPLES AND PROCESSES]\nPDF Description: A CBSE Class [class] [subject] textbook chapter PDF, containing theory,\n                 examples, and exercise questions typically at the end of the chapter under\n                 headings like \"EXERCISES\" or \"EXERCISE [number].\"\n\n==================================================\nMANDATORY INSTRUCTIONS FOR QUESTION EXTRACTION\n==================================================\nRULE 1 — EXTRACT FROM EXERCISES ONLY\n  Extract questions appearing ONLY under these headings:\n    • EXERCISES\n    • EXERCISE\n    • EXERCISE [number]\n    • Chapter Exercise\n\nRULE 2 — DO NOT EXTRACT FROM\n    • Solved Examples (Example X.X)\n    • Summary\n    • Points to Ponder\n    • Historical Notes\n    • Tables\n    • Figure Captions\n    • In-text theory questions\n    • Activity sections\n\nRULE 3 — EXTRACT EVERY QUESTION\n  Every sub-part (a), (b), (c) of a question must be treated as part of\n  that question. Do not skip any question or sub-part.\n\nRULE 4 — EXACT EXTRACTION\n  Copy each question exactly as written in the chapter.\n  Do not paraphrase, shorten, or reword any question.\n\nRULE 5 — COUNT AND CONFIRM\n  Before generating answers, internally count the total number of exercise\n  questions. After generating all answers, confirm:\n  \"TOTAL QUESTIONS ANSWERED: [N]\"\n\n==================================================\nMANDATORY INSTRUCTIONS FOR ANSWER GENERATION\n==================================================\nRULE 1 — USE ONLY CHAPTER CONTENT\n  Use ONLY information present in the supplied chapter content.\n  STRICTLY PROHIBITED:\n    ✗ Internet knowledge\n    ✗ External textbooks\n    ✗ NCERT Exemplar\n    ✗ Previous year papers\n    ✗ Coaching material\n    ✗ External assumptions\n    ✗ Content from any other chapter\n  If the answer is not found in the chapter, write exactly:\n  \"Answer not found in the uploaded Chapter PDF.\"\n\nRULE 2 — CBSE BOARD STANDARDS\n  • Use NCERT terminology throughout.\n  • Follow standard board answer-writing conventions.\n  • Do not repeat information unnecessarily.\n  • Generate concise but complete answers.\n\nRULE 3 — FORMULA REFERENCE RULES\n  Valid references ONLY:\n    ✓ Equation number     e.g., Eq. 8.4\n    ✓ Example number      e.g., Example 8.1\n    ✓ Section number      e.g., Section 8.3\n  Invalid references (never use):\n    ✗ Exercise number     e.g., Exercise 8.3\n    ✗ Page number\n    ✗ Points to Ponder\n    ✗ Summary point number\n\nRULE 4 — SOURCE PRIORITY ORDER\n  When referencing source material, follow this priority:\n    1st → Equation Number\n    2nd → Example Number\n    3rd → Section Number\n    4th → Summary\n    5th → Points to Ponder\n    6th → Exercise\n\nRULE 5 — COMPLETION IS MANDATORY\n  • Do NOT stop after the first question.\n  • Do NOT answer only a subset of questions.\n  • Every extracted question MUST have a corresponding answer.\n  • Continue until ALL exercise questions are processed.\n\n==================================================\nAUTOMATIC QUESTION CLASSIFICATION\n==================================================\nClassify every question as exactly ONE of the following:\n\nSAQ_LOW\n  → Definitions, direct facts, one-line concepts,\n    formula recall, simple identification\n\nSAQ_MID\n  → Conceptual explanations, why/how questions,\n    applications, compare and contrast\n\nSAQ_HARD\n  → Detailed multi-concept explanations,\n    long descriptive answers, cross-topic questions\n\nNUMERICAL\n  → Numerical values present, requires calculation,\n    requires formula application\n\nDERIVATION\n  → Contains keywords: derive / show that / prove / obtain relation\n\n==================================================\nGENERAL INSTRUCTIONS\n==================================================\n1. Read the entire chapter content before beginning extraction.\n2. Identify the EXERCISES section precisely — do not confuse with in-text questions.\n3. Process questions strictly in their printed sequence.\n4. Every answer must directly address what the question asks.\n5. Mention equation references wherever available.\n6. Show ALL calculation steps for numerical questions — never skip steps.\n7. Show ALL derivation steps — do not jump to the final result.\n8. Do not invent formulas, values, units, or explanations not in the chapter.\n9. For multi-part questions, answer each part (a), (b), (c) separately and clearly.\n10. After completing all answers, write the COMPLETION CONFIRMATION line.\n\n==================================================\nOUTPUT FORMAT\n==================================================\n\nUse the following block EXACTLY for every question. Repeat for each question without exception.\n\n────────────────────────────────────────────────\nQuestion Number : [e.g., 8.1 / 8.2(a) / Q.1]\nQuestion        : [Full exact question text as printed]\nType            : [SAQ_LOW / SAQ_MID / SAQ_HARD / NUMERICAL / DERIVATION]\n────────────────────────────────────────────────\n\n[IF TYPE = SAQ_LOW]\n\nAnswer   : [Precise single-point answer]\nFormula  : [Formula if applicable, else write — ]\nRef      : [Eq. X.X / Example X.X / — ]\nSource   : [Section X.X / Summary / — ]\n\n────────────────────────────────────────────────\n\n[IF TYPE = SAQ_MID]\n\nAnswer:\n  Point 1 : [First key point]\n  Point 2 : [Second key point]\n  Point 3 : [Third key point]\n  Point 4 : [Fourth key point, if applicable]\n\nFormula  : [Formula if applicable, else write — ]\nRef      : [Eq. X.X / Example X.X / — ]\nSource   : [Section X.X / Summary / — ]\n\n────────────────────────────────────────────────\n\n[IF TYPE = SAQ_HARD]\n\nAnswer:\n  Point 1 : [First key point]\n  Point 2 : [Second key point]\n  Point 3 : [Third key point]\n  Point 4 : [Fourth key point]\n  Point 5 : [Fifth key point, if applicable]\n\nFormula  : [Formula if applicable, else write — ]\nRef      : [Eq. X.X / Example X.X / — ]\nSource   : [Section X.X / Summary / — ]\n\n────────────────────────────────────────────────\n\n[IF TYPE = NUMERICAL]\n\nGiven    :\n  • [Variable 1] = [Value with unit]\n  • [Variable 2] = [Value with unit]\n  • [Variable 3] = [Value with unit]\n\nStep 1   : [State formula used]\nStep 2   : [Substitute values]\nStep 3   : [Simplify / intermediate calculation]\nStep 4   : [Final computation, if needed]\n\nFinal Answer : [Numerical value + correct unit]\nFormula      : [Formula used]\nRef          : [Eq. X.X / Example X.X]\nSource       : [Section X.X / Eq. X.X]\n\n────────────────────────────────────────────────\n\n[IF TYPE = DERIVATION]\n\nStep 1   : [Starting point / state the law or principle]\nStep 2   : [First mathematical or logical step]\nStep 3   : [Intermediate step]\nStep 4   : [Continuation]\nStep 5   : [Final algebraic manipulation, if needed]\n\nFinal Expression : [Derived equation or result]\nFormula          : [Key formula used]\nRef              : [Eq. X.X / Example X.X]\nSource           : [Section X.X / Eq. X.X]\n\n────────────────────────────────────────────────\n\n==================================================\nRESTRICTIONS\n==================================================\n✗ Do not answer Solved Examples (Example X.X).\n✗ Do not answer Summary points.\n✗ Do not answer Points to Ponder.\n✗ Do not answer in-text theory questions.\n✗ Do not reference page numbers.\n✗ Do not reference exercise numbers as formula sources.\n✗ Do not use external knowledge of any kind.\n✗ Do not invent or assume any fact not stated in the chapter.\n✗ Do not skip any exercise question.\n✗ Do not stop before all questions are answered.\n✗ Do not merge sub-parts — answer (a), (b), (c) separately.\n✗ Do not produce one-word answers for SAQ_MID or SAQ_HARD.\n✗ Do not omit units in numerical answers.\n✗ Do not omit formula references when equations exist in the chapter.\n\n==================================================\nEXAMPLE OUTPUT (Based on Sample)\n==================================================\n\n────────────────────────────────────────────────\nQuestion Number : 8.7\nQuestion        : The amplitude of the magnetic field part of a harmonic\n                  electromagnetic wave in vacuum is B₀ = 510 nT. What is\n                  the amplitude of the electric field part of the wave?\nType            : NUMERICAL\n────────────────────────────────────────────────\n\nGiven    :\n  • B₀ = 510 nT = 510 × 10⁻⁹ T\n  • c  = 3 × 10⁸ m/s\n\nStep 1   : Use the relation between electric and magnetic field amplitudes:\n           E₀ = B₀ × c\n\nStep 2   : Substitute values:\n           E₀ = 510 × 10⁻⁹ × 3 × 10⁸\n\nStep 3   : Simplify:\n           E₀ = 510 × 0.3 = 153 V/m\n\nFinal Answer : E₀ = 153 V/m\nFormula      : E₀ = B₀ × c\nRef          : Eq. 8.10\nSource       : Section 8.3.2\n\n────────────────────────────────────────────────\nQuestion Number : 8.3\nQuestion        : What physical quantity is the same for X-rays of wavelength\n                  10⁻¹⁰ m, red light of wavelength 6800 Å and radiowaves of\n                  wavelength 500 m?\nType            : SAQ_LOW\n────────────────────────────────────────────────\n\nAnswer   : The speed in vacuum (c = 3 × 10⁸ m/s) is the same for all\n           electromagnetic waves regardless of their wavelength or frequency.\nFormula  : c = νλ\nRef      : Eq. 8.9(b)\nSource   : Section 8.3.2\n\n────────────────────────────────────────────────\n\n==================================================\nCHAPTER CONTENT\n==================================================\n[PASTE EXTRACTED CHAPTER TEXT HERE]\n\n==================================================\nFINAL INSTRUCTION\n==================================================\nBegin extracting and answering ALL exercise questions now.\nProcess every question in sequence.\nDo not stop until every exercise question is answered.\nEnd your response with:\n\nPDF Content:\n{{ $('Extract from File').item.json.text }}\n",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        144,
+        -32
+      ],
+      "id": "b613219a-313f-4a96-bb64-42515df0bef2",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        160,
+        160
+      ],
+      "id": "72220ec9-7a67-4c0b-8522-ecdbb6b4abe2",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "tCe4Lqwe0wtmrnjZ",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\nfor (const item of items) {\n  item.json.answer = (item.json.output || item.json.text || \"\")\n    .trim();\n}\n\nreturn items;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        -32
+      ],
+      "id": "bf318646-a267-4903-9a60-8d7e2b97d348",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "operation": "toText",
+        "sourceProperty": "text",
+        "options": {
+          "fileName": "answer.txt"
+        }
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        704,
+        -32
+      ],
+      "id": "19e7a9c0-8075-4deb-bab1-49387b8b9e32",
+      "name": "Convert to File"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Convert to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "45180d2d-0df2-4478-a783-7f59cb8d47ac",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a55e87f67b04a1cd9171643da4e74b8812a4a6ca9fc0e1fbae6a8cad25ec3607"
+  },
+  "id": "FkiIoOCDPjlJiVPK",
+  "tags": []
+}
