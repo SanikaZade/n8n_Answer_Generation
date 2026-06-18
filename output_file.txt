@@ -1,0 +1,213 @@
+────────────────────────────────────────────────
+Question Number : 8.1(a)
+Question        : Calculate the capacitance and the rate of change of potential
+                  difference between the plates.
+Type            : NUMERICAL
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+Question Number : 8.1(b)
+Question        : Obtain the displacement current across the plates.
+Type            : NUMERICAL
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+Question Number : 8.1(c)
+Question        : Is Kirchhoff’s first rule (junction rule) valid at each plate of the
+                  capacitor? Explain.
+Type            : SAQ_MID
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+Question Number : 8.2(a)
+Question        : What is the rms value of the conduction current?
+Type            : NUMERICAL
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+Question Number : 8.2(b)
+Question        : Is the conduction current equal to the displacement current?
+Type            : SAQ_MID
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+Question Number : 8.2(c)
+Question        : Determine the amplitude of B at a point 3.0 cm from the axis
+                  between the plates.
+Type            : NUMERICAL
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+Question Number : 8.3
+Question        : What physical quantity is the same for X-rays of wavelength
+                  10⁻¹⁰ m, red light of wavelength 6800 Å and radiowaves of wavelength
+                  500m?
+Type            : SAQ_LOW
+────────────────────────────────────────────────
+
+Answer   : The speed in vacuum is the same for all electromagnetic waves.
+Formula  : —
+Ref      : —
+Source   : Points to Ponder
+
+────────────────────────────────────────────────
+Question Number : 8.4
+Question        : A plane electromagnetic wave travels in vacuum along z-direction.
+                  What can you say about the directions of its electric and magnetic
+                  field vectors? If the frequency of the wave is 30 MHz, what is its
+                  wavelength?
+Type            : SAQ_MID
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+Question Number : 8.5
+Question        : A radio can tune in to any station in the 7.5 MHz to 12 MHz band.
+                  What is the corresponding wavelength band?
+Type            : NUMERICAL
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+Question Number : 8.6
+Question        : A charged particle oscillates about its mean equilibrium position
+                  with a frequency of 10⁹ Hz. What is the frequency of the
+                  electromagnetic waves produced by the oscillator?
+Type            : SAQ_LOW
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+Question Number : 8.7
+Question        : The amplitude of the magnetic field part of a harmonic
+                  electromagnetic wave in vacuum is B₀ = 510 nT. What is the
+                  amplitude of the electric field part of the wave?
+Type            : NUMERICAL
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+Question Number : 8.8(a)
+Question        : Determine, B₀, ω, k, and λ.
+Type            : NUMERICAL
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+Question Number : 8.8(b)
+Question        : Find expressions for E and B.
+Type            : SAQ_HARD
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+Question Number : 8.9
+Question        : The terminology of different parts of the electromagnetic spectrum
+                  is given in the text. Use the formula E = hν (for energy of a quantum
+                  of radiation: photon) and obtain the photon energy in units of eV for
+                  different parts of the electromagnetic spectrum. In what way are
+                  the different scales of photon energies that you obtain related to the
+                  sources of electromagnetic radiation?
+Type            : SAQ_HARD
+────────────────────────────────────────────────
+
+Answer:
+  Point 1 : The calculation of photon energy in units of eV for different parts of the electromagnetic spectrum cannot be performed as the required values for Planck's constant (h) and the frequency ranges for different parts of the spectrum are not provided in the uploaded Chapter PDF.
+  Point 2 : The sources of electromagnetic radiation are related to the characteristic size or origin of the system that radiates.
+  Point 3 : Gamma radiation, with very short wavelengths, typically originate from an atomic nucleus.
+  Point 4 : X-rays are emitted from heavy atoms.
+  Point 5 : Radio waves are produced by accelerating electrons in a circuit.
+Formula  : E = hν (Given in question)
+Ref      : —
+Source   : Points to Ponder
+
+────────────────────────────────────────────────
+Question Number : 8.10(a)
+Question        : What is the wavelength of the wave?
+Type            : NUMERICAL
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+Question Number : 8.10(b)
+Question        : What is the amplitude of the oscillating magnetic field?
+Type            : NUMERICAL
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+Question Number : 8.10(c)
+Question        : Show that the average energy density of the E field equals the
+                  average energy density of the B field.
+Type            : DERIVATION
+────────────────────────────────────────────────
+
+Answer   : Answer not found in the uploaded Chapter PDF.
+Formula  : —
+Ref      : —
+Source   : —
+
+────────────────────────────────────────────────
+TOTAL QUESTIONS ANSWERED: 19
