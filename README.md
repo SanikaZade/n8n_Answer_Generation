@@ -5,7 +5,6 @@
 This project automates the generation of CBSE Class 12 Physics answers from NCERT chapter PDFs using n8n and Google Gemini AI.
 
 The workflow extracts chapter content from a PDF, identifies exercise questions, automatically classifies them by difficulty level, generates structured CBSE-style answers, and exports the final results as a formatted PDF answer sheet.
-<img width="1492" height="536" alt="Screenshot 2026-06-18 113251" src="https://github.com/user-attachments/assets/79b79ff9-7538-4b03-a0ed-1e4d78cd5d19" />
 
 ---
 
@@ -80,6 +79,9 @@ cbse-physics-answer-pdf-generator/
 ---
 
 ## Workflow Screenshot
+
+
+<img width="1492" height="536" alt="Screenshot 2026-06-18 113251" src="https://github.com/user-attachments/assets/79b79ff9-7538-4b03-a0ed-1e4d78cd5d19" />
 
 
 ---
