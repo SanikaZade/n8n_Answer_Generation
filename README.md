@@ -1,4 +1,4 @@
-# CBSE Physics Answer Generator using n8n 
+# Answer Generator using n8n 
 
 ## Overview
 
